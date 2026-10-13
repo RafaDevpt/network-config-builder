@@ -10,11 +10,12 @@
 **Switch configuration for Aruba, Cisco and Ubiquiti — build it, diff it, then push it**
 
 ![Status](https://img.shields.io/badge/status-active-2EA043?style=for-the-badge)
-![Version](https://img.shields.io/badge/version-1.0.0-1F6FEB?style=for-the-badge)
+[![Release](https://img.shields.io/github/v/release/RafaDevpt/network-config-builder?style=for-the-badge&color=1F6FEB)](https://github.com/RafaDevpt/network-config-builder/releases)
+[![CI](https://img.shields.io/github/actions/workflow/status/RafaDevpt/network-config-builder/ci.yml?branch=main&style=for-the-badge&label=CI)](https://github.com/RafaDevpt/network-config-builder/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Platforms](https://img.shields.io/badge/Windows_·_Linux_·_macOS-0078D6?style=for-the-badge)
 
-<a href="../../tree/main"><img src="https://img.shields.io/badge/←_back_to_index-30363D?style=flat-square" /></a>
+<a href="https://github.com/RafaDevpt/Personal-AI-Projects"><img src="https://img.shields.io/badge/←_back_to_index-30363D?style=flat-square" /></a>
 
 </div>
 

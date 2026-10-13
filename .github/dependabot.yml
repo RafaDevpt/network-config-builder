@@ -1,0 +1,18 @@
+version: 2
+updates:
+  - package-ecosystem: pip
+    directory: "/Network-Config-Builder/Linux"
+    schedule:
+      interval: weekly
+  - package-ecosystem: pip
+    directory: "/Network-Config-Builder/Windows"
+    schedule:
+      interval: weekly
+  - package-ecosystem: pip
+    directory: "/Network-Config-Builder/macOS"
+    schedule:
+      interval: weekly
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
