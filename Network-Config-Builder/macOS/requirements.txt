@@ -22,7 +22,7 @@
 # EN-UK: Graphical interface. Sits on the standard library's Tkinter, so it
 #        brings no graphics engine of its own. MIT-licensed.
 #        Not required in --cli mode.
-customtkinter>=5.2.2,<6.0
+customtkinter>=5.2.2,<7.0
 
 # PT-PT: Sessão SSH com o dialecto de cada fabricante — saber quando a CLI
 #        acabou de responder, lidar com a paginação e com o modo de
