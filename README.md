@@ -126,6 +126,12 @@ Full documentation, including the per-vendor quirks that each generator exists t
 
 ---
 
+## Configuration
+
+Secrets are read from environment variables, never from files in the repository: `NETCONFIG_UTILIZADOR`, `NETCONFIG_PALAVRA_PASSE`. [`.env.example`](.env.example) is the template: copy it to `.env`, fill it in and load it into your shell (`set -a; . ./.env; set +a`) or hand it to Docker (`--env-file .env`). `.env` is ignored by git.
+
+Os segredos são lidos de variáveis de ambiente, nunca de ficheiros do repositório. O [`.env.example`](.env.example) é o modelo: copie para `.env`, preencha e carregue-o na shell ou passe-o ao Docker. O `.env` é ignorado pelo git.
+
 ## License
 
 MIT — see [`LICENSE`](LICENSE).
