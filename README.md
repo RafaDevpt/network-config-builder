@@ -5,19 +5,29 @@
 
 <div align="center">
 
-# 🌐 Network Config Builder
+<img src="Assets/banner.svg" width="100%" alt="Network Config Builder" />
 
-**Switch configuration for Aruba, Cisco and Ubiquiti — build it, diff it, then push it**
+<br />
 
-![Status](https://img.shields.io/badge/status-active-2EA043?style=for-the-badge)
-[![Release](https://img.shields.io/github/v/release/RafaDevpt/network-config-builder?style=for-the-badge&color=1F6FEB)](https://github.com/RafaDevpt/network-config-builder/releases)
-[![CI](https://img.shields.io/github/actions/workflow/status/RafaDevpt/network-config-builder/ci.yml?branch=main&style=for-the-badge&label=CI)](https://github.com/RafaDevpt/network-config-builder/actions/workflows/ci.yml)
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Platforms](https://img.shields.io/badge/Windows_·_Linux_·_macOS-0078D6?style=for-the-badge)
+[![CI](https://img.shields.io/github/actions/workflow/status/RafaDevpt/network-config-builder/ci.yml?branch=main&style=flat-square&label=CI&labelColor=0b1220)](https://github.com/RafaDevpt/network-config-builder/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/RafaDevpt/network-config-builder?style=flat-square&label=release&color=38bdf8&labelColor=0b1220)](https://github.com/RafaDevpt/network-config-builder/releases/latest)
+![status](https://img.shields.io/badge/status-active-38bdf8?style=flat-square&labelColor=0b1220)
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&labelColor=0b1220&logo=python&logoColor=white)
+![platforms](https://img.shields.io/badge/platforms-Windows_·_Linux_·_macOS-0078D6?style=flat-square&labelColor=0b1220)
+![licence](https://img.shields.io/badge/licence-MIT-f59e0b?style=flat-square&labelColor=0b1220)
 
-<a href="https://github.com/RafaDevpt/Personal-AI-Projects"><img src="https://img.shields.io/badge/←_back_to_index-30363D?style=flat-square" /></a>
+<br /><br />
+
+<a href="https://github.com/RafaDevpt/Personal-AI-Projects"><img src="https://img.shields.io/badge/←_back_to_the_index-30363d?style=for-the-badge" /></a>
+<a href="https://github.com/RafaDevpt/network-config-builder/releases/latest"><img src="https://img.shields.io/badge/download_the_latest_release_→-38bdf8?style=for-the-badge&labelColor=0b1220" /></a>
+
+<sub>Part of <a href="https://github.com/RafaDevpt/Personal-AI-Projects"><b>Personal AI Projects</b></a> by Redfox</sub>
 
 </div>
+
+# 🌐 Network Config Builder
+
+> **Switch configuration for Aruba, Cisco and Ubiquiti — build it, diff it, then push it**
 
 ---
 
@@ -27,7 +37,7 @@ Configuring a floor of switches is the same twenty minutes repeated per device: 
 
 Network Config Builder collapses that into one form. Describe the switch once — VLANs, ports, services, hardening — and it writes the configuration file in **Aruba AOS-CX**, **Cisco IOS**, **Ubiquiti EdgeSwitch** or **UniFi** syntax. The same voice VLAN is not written three times because the network has three brands.
 
-Then, optionally, it connects: reads what is actually running on the device, shows the difference against what you built, and pushes — in that order, with a backup taken before any write.
+Then, optionally, it connects: reads what is actually running on the device, shows the difference against what was built, and pushes — in that order, with a backup taken before any write.
 
 ---
 
@@ -53,7 +63,7 @@ Push is dry-run by default. The real thing requires typing the device's name.
 
 ### 📋 Inventory
 
-Reads the switch list that already exists in somebody's spreadsheet — `.xlsx`, `.csv`, `.json` — and writes it back. A TCP reachability sweep tells you what is up before you start.
+Reads the switch list that already exists in somebody's spreadsheet — `.xlsx`, `.csv`, `.json` — and writes it back. A TCP reachability sweep shows what is up before any work starts.
 
 ---
 
@@ -126,7 +136,7 @@ Full documentation, including the per-vendor quirks that each generator exists t
 
 ---
 
-## License
+## Licence
 
 MIT — see [`LICENSE`](LICENSE).
 
@@ -135,9 +145,9 @@ MIT — see [`LICENSE`](LICENSE).
 
 ## 🐳 Docker & Terraform
 
-The graphical interface stays a desktop app: a container has no screen. Docker runs the command line, which is the part worth automating. / A interface gráfica continua a ser uma aplicação de secretária: num contentor não há ecrã. O Docker corre a linha de comandos, que é a parte que vale a pena automatizar.
+The graphical interface stays a desktop app: a container has no screen. Docker runs the command line, which is the part worth automating.
 
-Files / Ficheiros: [`Network-Config-Builder/Linux/Dockerfile`](Network-Config-Builder/Linux/Dockerfile) · [`Network-Config-Builder/Linux/terraform/`](Network-Config-Builder/Linux/terraform/)
+Files: [`Network-Config-Builder/Linux/Dockerfile`](Network-Config-Builder/Linux/Dockerfile) · [`Network-Config-Builder/Linux/terraform/`](Network-Config-Builder/Linux/terraform/)
 
 ### Docker
 
@@ -147,21 +157,21 @@ docker build -t local/network-config-builder .
 docker run --rm local/network-config-builder --help
 ```
 
-Everything the app reads or writes lives in `/dados`; mount a folder there and run as your own user (`--user`) so the files it writes are yours. / Tudo o que a aplicação lê ou escreve vive em `/dados`; monte lá uma pasta e corra com o seu utilizador (`--user`) para os ficheiros escritos serem seus.
+Everything the app reads or writes lives in `/dados`; a host folder is mounted there and the container runs as the invoking user (`--user`), so the files it writes belong to that user.
 
-Write a starting profile / Escrever um perfil de partida:
+Write a starting profile:
 
 ```bash
 docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/dados" local/network-config-builder modelo acesso --saida perfil.json
 ```
 
-Generate the configuration file / Gerar o ficheiro de configuração:
+Generate the configuration file:
 
 ```bash
 docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/dados" local/network-config-builder gerar perfil.json --saida switch.cfg
 ```
 
-Back up a device (asks for the password) / Cópia de um equipamento (pede a palavra-passe):
+Back up a device (asks for the password):
 
 ```bash
 docker run --rm -it --user "$(id -u):$(id -g)" --network host -v "$PWD:/dados" local/network-config-builder --inventario inventario.xlsx backup --equipamento SW-EXEMPLO-01
@@ -169,16 +179,16 @@ docker run --rm -it --user "$(id -u):$(id -g)" --network host -v "$PWD:/dados" l
 
 ### Terraform
 
-Builds the image and creates a container with the same hardening (read-only filesystem, no capabilities, unprivileged user). / Constrói a imagem e cria um contentor com o mesmo endurecimento (sistema de ficheiros só de leitura, sem capacidades, utilizador sem privilégios).
+Builds the image and creates a container with the same hardening (read-only filesystem, no capabilities, unprivileged user).
 
 ```bash
 cd Network-Config-Builder/Linux/terraform
 mkdir -p dados
 terraform init
 terraform apply -var "pasta_dados=./dados" -var "utilizador=$(id -u):$(id -g)"
-docker logs network-config-builder            # output / resultado
-docker start -a network-config-builder        # run again with the same settings / correr de novo
+docker logs network-config-builder            # output
+docker start -a network-config-builder        # run again with the same settings
 terraform destroy
 ```
 
-Change what it runs with `-var 'comando=[...]'` (default: `["gerar", "perfil.json", "--saida", "switch.cfg"]`). Secrets go in `TF_VAR_ambiente`, never in the `.tf` files. / Mude o que corre com `-var 'comando=[...]'`. Os segredos vão em `TF_VAR_ambiente`, nunca nos ficheiros `.tf`.
+Change what it runs with `-var 'comando=[...]'` (default: `["gerar", "perfil.json", "--saida", "switch.cfg"]`). Secrets go in `TF_VAR_ambiente`, never in the `.tf` files.
